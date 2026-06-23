@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accedi - CFO AI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top,
+    #f8fbff 0%,
+    #eef5ff 40%,
+    #ffffff 100%);
+
+    font-family:'Inter','Segoe UI',sans-serif;
+}
+
+.login-card{
+
+    width:450px;
+    max-width:90%;
+
+    background:rgba(255,255,255,.95);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    backdrop-filter:blur(20px);
+
+    margin-top:-17px;
+}
+
+h1{
+    font-size:32px;
+    font-weight:470;
+    color:#111;
+    margin-bottom:10px;
+    letter-spacing:-1px;
+}
+
+.subtitle{
+    color:#6b7280;
+    font-size:17px;
+}
+
+.google-btn{
+
+    width:100%;
+    height:56px;
+
+    border:none;
+    border-radius:18px;
+
+    background:white;
+
+    border:1px solid rgba(0,0,0,.1);
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    margin-bottom:25px;
+
+    transition:.2s;
+}
+
+.google-btn:hover{
+    transform:translateY(-2px);
+}
+
+.google-btn img{
+    width:22px;
+}
+
+.separator{
+
+    text-align:center;
+    margin:20px 0;
+
+    color:#888;
+    font-size:13px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#111;
+    font-size:14px;
+}
+
+input{
+
+    width:100%;
+
+    height:52px;
+
+    border:1px solid rgba(0,0,0,.1);
+
+    border-radius:14px;
+
+    padding:0 15px;
+
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#3b82f6;
+}
+
+.login-btn{
+
+    width:100%;
+    height:56px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#111827;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+}
+
+.footer{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#666;
+}
+
+.footer a{
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-weight:600;
+}
+
+.error{
+
+    display:none;
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+}
+
+.login-container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.login-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.brand-name{
+    font-size:14px;
+    font-weight:500;
+    color:#666;
+    letter-spacing:0.5px;
+}
+
+/* stesso identico pallino della intro */
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22c55e;
+    animation:pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 5px rgba(34,197,94,.4),
+                   0 0 10px rgba(34,197,94,.3);
+    }
+    50%{
+        transform:scale(1.15);
+        box-shadow:0 0 15px rgba(34,197,94,.9),
+                   0 0 30px rgba(34,197,94,.7),
+                   0 0 45px rgba(34,197,94,.4);
+    }
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 5px rgba(34,197,94,.4),
+                   0 0 10px rgba(34,197,94,.3);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-header">
+
+        <div class="brand">
+            <span class="status-dot"></span>
+            <span class="brand-name">CFO-AI</span>
+        </div>
+
+        <h1>Bentornato</h1>
+        <p class="subtitle">
+            Accedi al tuo account
+        </p>
+
+    </div>
+
+    <div class="login-card">
+
+<button
+    class="google-btn"
+    onclick="loginWithGoogle()">
+
+    <img src="Google.png" alt="Google">
+
+    Continua con Google
+
+</button>
+
+    <div class="separator">
+        OPPURE
+    </div>
+
+    <div class="error" id="errorBox">
+        Email o password non validi
+    </div>
+
+    <form id="loginForm">
+
+        <div class="input-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="tu@esempio.com"
+                required>
+
+        </div>
+
+        <div class="input-group">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        
+        <label style="margin:0;">Password</label>
+
+        <a href="forgotpassword.html"
+           style="font-size:12px; color:#6b7280; text-decoration:none;">
+            Password dimenticata?
+        </a>
+
+    </div>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="••••••••"
+        required>
+
+</div>
+
+<button
+    type="submit"
+    class="login-btn">
+
+    Accedi
+
+</button>
+
+    </form>
+
+    <div class="footer">
+
+        Non hai un account?
+
+        <a href="register.html">
+            Registrati
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+document
+.getElementById("loginForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    console.log(email);
+    console.log(password);
+
+    // FUTURO:
+    // controllo database
+
+    alert("Login eseguito");
+
+});
+
+</script>
+
+<script type="module" src="firebase.js"></script>
+
+</body>
+</html>

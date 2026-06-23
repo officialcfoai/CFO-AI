@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrati - CFO AI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at top,
+    #f8fbff 0%,
+    #eef5ff 40%,
+    #ffffff 100%);
+    font-family:'Inter','Segoe UI',sans-serif;
+}
+
+/* HEADER */
+.register-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22c55e;
+    animation:pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow{
+    0%{transform:scale(1); box-shadow:0 0 5px rgba(34,197,94,.4);}
+    50%{transform:scale(1.2); box-shadow:0 0 20px rgba(34,197,94,.8);}
+    100%{transform:scale(1); box-shadow:0 0 5px rgba(34,197,94,.4);}
+}
+
+.brand-name{
+    font-size:14px;
+    font-weight:500;
+    color:#666;
+    letter-spacing:0.5px;
+}
+
+/* CARD */
+.card{
+    
+    width:500px;
+
+    max-width:90%;
+
+    background:rgba(255,255,255,.95);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    backdrop-filter:blur(20px);
+
+    margin-top:-17px;
+
+    }
+
+    h1{
+    font-size:32px;
+    font-weight:470;
+    color:#111;
+    margin-bottom:10px;
+    letter-spacing:-1px;
+}
+
+.subtitle{
+    color:#6b7280;
+    font-size:17px;
+}
+
+/* INPUT */
+.input-group{
+    margin-bottom:5px;
+}
+
+label{
+    font-size:14px;
+    color:#111;
+    display:block;
+    margin-bottom:6px;
+}
+
+input{
+    width:100%;
+    height:52px;
+    border-radius:14px;
+    border:1px solid rgba(0,0,0,.1);
+    padding:0 15px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#3b82f6;
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    height:56px;
+    border:none;
+    border-radius:18px;
+    background:#111827;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.google-btn{
+
+    width:100%;
+    height:56px;
+
+    border:none;
+    border-radius:18px;
+
+    background:white;
+
+    border:1px solid rgba(0,0,0,.1);
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    margin-bottom:25px;
+
+    transition:.2s;
+}
+
+
+/* OTP */
+.otp-container{
+    display:none;
+    text-align:center;
+}
+
+.otp-input{
+    width:100%;
+    height:60px;
+    font-size:22px;
+    text-align:center;
+    letter-spacing:10px;
+    border-radius:14px;
+    border:1px solid rgba(0,0,0,.1);
+}
+
+/* ERROR */
+.error{
+    display:none;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:10px;
+    border-radius:12px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.footer{
+    margin-top:20px;
+    text-align:center;
+    color:#666;
+}
+
+.footer a{
+    color:#111;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.separator{
+    text-align:center;
+    margin:-4px 0;
+    color:#888;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- REGISTER VIEW -->
+<div class="container">
+
+    <div class="register-header">
+        <div class="brand">
+            <span class="status-dot"></span>
+            <span class="brand-name">CFO-AI</span>
+        </div>
+
+        <h1>Crea il tuo account</h1>
+        <p class="subtitle"> 
+            Registrati per iniziare
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <button class="google-btn">
+            <img src="Google.png" width="22">
+            Continua con Google
+        </button>
+
+        <div class="separator">
+             OPPURE
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <!-- FORM REGISTRAZIONE -->
+        <div id="registerForm">
+
+            <div class="input-group">
+                <label>Email</label>
+                <input id="email" type="email" placeholder="tu@esempio.com">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input id="password" type="password" placeholder="••••••••">
+            </div>
+
+            <div class="input-group">
+                <label>Conferma Password</label>
+                <input id="confirm" type="password" placeholder="••••••••">
+            </div>
+
+            <button class="btn" onclick="register()">
+                Registrati
+            </button>
+
+        </div>
+
+        <!-- OTP -->
+        <div class="otp-container" id="otpBox">
+
+            <p style="margin-bottom:10px;color:#666">
+                Inserisci il codice ricevuto via email
+            </p>
+
+            <input class="otp-input" id="otp" placeholder="------" maxlength="6">
+
+            <button class="btn" onclick="verifyOtp()">
+                Verifica
+            </button>
+
+            <p style="margin-top:10px;font-size:13px;color:#666">
+                Non hai ricevuto il codice?
+                <a href="#" onclick="resendOtp()">Reinvia</a>
+            </p>
+
+        </div>
+
+        <div class="footer">
+            Hai già un account?
+            <a href="login.html">Accedi</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+let fakeOtp = "123456";
+
+function register(){
+
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+    const confirm = document.getElementById("confirm").value;
+    const error = document.getElementById("error");
+
+    error.style.display = "none";
+
+    if(pass !== confirm){
+        error.innerText = "Le password non coincidono";
+        error.style.display = "block";
+        return;
+    }
+
+    console.log("Registrazione:", email);
+
+    // SIMULAZIONE OTP
+    document.getElementById("registerForm").style.display = "none";
+    document.getElementById("otpBox").style.display = "block";
+
+    alert("Codice OTP inviato: 123456 (demo)");
+}
+
+function verifyOtp(){
+
+    const otp = document.getElementById("otp").value;
+
+    if(otp === fakeOtp){
+        alert("Account creato con successo!");
+        window.location.href = "login.html";
+    } else {
+        alert("Codice errato");
+    }
+}
+
+function resendOtp(){
+    alert("Nuovo codice inviato (demo: 123456)");
+}
+
+</script>
+
+</body>
+</html>
