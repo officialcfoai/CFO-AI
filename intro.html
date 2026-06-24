@@ -1,0 +1,300 @@
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benvenuto - CFO AI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+    circle at top,
+    #f8fbff 0%,
+    #eef5ff 40%,
+    #ffffff 100%);
+
+    font-family:'Inter','Segoe UI',sans-serif;
+}
+
+.container{
+
+    width:1100px;
+    max-width:92%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+}
+
+.logo-side{
+
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+}
+
+.logo-side img{
+
+    width:320px;
+    max-width:100%;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.chat-side{
+
+    flex:1;
+}
+
+.brand{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:18px;
+}
+
+.status-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    animation:pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+
+    0%{
+        transform:scale(1);
+        box-shadow:
+        0 0 5px rgba(34,197,94,.4),
+        0 0 10px rgba(34,197,94,.3);
+    }
+
+    50%{
+        transform:scale(1.15);
+        box-shadow:
+        0 0 15px rgba(34,197,94,.9),
+        0 0 30px rgba(34,197,94,.7),
+        0 0 45px rgba(34,197,94,.4);
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:
+        0 0 5px rgba(34,197,94,.4),
+        0 0 10px rgba(34,197,94,.3);
+    }
+}
+
+.brand-name{
+
+    font-size:14px;
+    color:#666;
+    font-weight:600;
+}
+
+.message{
+
+    background:rgba(255,255,255,.95);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    backdrop-filter:blur(20px);
+}
+
+.message h1{
+
+    font-size:42px;
+
+    color:#111;
+
+    margin-bottom:18px;
+
+    letter-spacing:-1px;
+
+    font-weight:500;
+}
+
+.message p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#4b5563;
+}
+
+.highlight{
+
+    color:#111827;
+    font-weight:600;
+}
+
+.start-btn{
+
+    margin-top:30px;
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#111827;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.start-btn:hover{
+
+    transform:translateY(-2px);
+}
+
+@media(max-width:900px){
+
+    .container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:40px;
+    }
+
+    .logo-side img{
+
+        width:220px;
+    }
+
+    .message h1{
+
+        font-size:34px;
+    }
+
+    .message p{
+
+        font-size:17px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo-side">
+
+        <img src="CFO-AI.png" alt="CFO AI">
+
+    </div>
+
+    <div class="chat-side">
+
+        <div class="brand">
+
+            <span class="status-dot"></span>
+
+            <span class="brand-name">
+                CFO-AI online
+            </span>
+
+        </div>
+
+        <div class="message">
+
+            <h1>Ciao, sono CFO-AI 👋</h1>
+
+            <p>
+
+                Benvenuto a bordo.
+
+                Sono il tuo assistente intelligente per la crescita aziendale.
+
+                Ti aiuterò ad
+                <span class="highlight">
+                automatizzare i processi finanziari
+                </span>,
+                comprendere i dati in tempo reale e trasformare numeri complessi in decisioni semplici.
+
+                <br><br>
+
+                Insieme potremo individuare opportunità, migliorare le performance e supportare la crescita della tua azienda con la potenza dell'intelligenza artificiale.
+
+                <br><br>
+
+                Sei pronto a iniziare questo viaggio?
+
+            </p>
+
+            <button
+                class="start-btn"
+                onclick="window.location.href='home.html'">
+
+                Inizia il viaggio
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+```
