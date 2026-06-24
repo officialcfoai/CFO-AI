@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CFO-AI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #f8fbff 0%,
+        #eef5ff 40%,
+        #ffffff 100%
+    );
+
+    font-family:'Inter','Segoe UI',sans-serif;
+
+    overflow:hidden;
+}
+
+.intro-container{
+
+    width:1200px;
+    max-width:95%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+}
+
+.left-side{
+
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+}
+
+.left-side img{
+
+    width:420px;
+    max-width:100%;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.right-side{
+
+    flex:1;
+
+    max-width:550px;
+}
+
+.brand{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.brand-name{
+
+    font-size:14px;
+    font-weight:500;
+
+    color:#666;
+
+    letter-spacing:.5px;
+}
+
+.status-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    animation:pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+
+    0%{
+        transform:scale(1);
+        box-shadow:
+        0 0 5px rgba(34,197,94,.4),
+        0 0 10px rgba(34,197,94,.3);
+    }
+
+    50%{
+        transform:scale(1.15);
+        box-shadow:
+        0 0 15px rgba(34,197,94,.9),
+        0 0 30px rgba(34,197,94,.7),
+        0 0 45px rgba(34,197,94,.4);
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:
+        0 0 5px rgba(34,197,94,.4),
+        0 0 10px rgba(34,197,94,.3);
+    }
+}
+
+h1{
+
+    font-size:52px;
+    font-weight:500;
+
+    color:#111827;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+    letter-spacing:-2px;
+}
+
+.message{
+
+    font-size:19px;
+
+    color:#4b5563;
+
+    line-height:1.9;
+
+    min-height:250px;
+}
+
+.cursor{
+
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0;
+    }
+}
+
+.start-btn{
+
+    margin-top:35px;
+
+    width:220px;
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#111827;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.start-btn:hover{
+
+    transform:translateY(-3px);
+}
+
+@media(max-width:900px){
+
+    .intro-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:30px;
+    }
+
+    .brand{
+        justify-content:center;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .left-side img{
+        width:280px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="intro-container">
+
+    <div class="left-side">
+
+        <img src="CFO-AI.png" alt="CFO AI">
+
+    </div>
+
+    <div class="right-side">
+
+        <div class="brand">
+
+            <span class="status-dot"></span>
+            <span class="brand-name">CFO-AI</span>
+
+        </div>
+
+        <h1>Benvenuto su CFO-AI</h1>
+
+        <div class="message">
+            <span id="typed-text"></span>
+            <span class="cursor">|</span>
+        </div>
+
+        <button
+            class="start-btn"
+            onclick="window.location.href='login.html'">
+
+            Iniziamo
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const text = `Ciao 👋
+
+Sono CFO-AI, il tuo assistente finanziario intelligente.
+
+Sono stato progettato per aiutare aziende, imprenditori e professionisti a lavorare in modo più rapido, semplice ed efficace.
+
+Posso automatizzare processi finanziari, analizzare dati in tempo reale e trasformare numeri complessi in decisioni chiare.
+
+Il mio obiettivo è farti risparmiare tempo, ridurre gli errori e aiutarti a far crescere il tuo business con la potenza dell'Intelligenza Artificiale.
+
+Sei pronto a rivoluzionare il modo in cui gestisci la tua azienda?`;
+
+let i = 0;
+
+function typeWriter(){
+
+    if(i < text.length){
+
+        document
+        .getElementById("typed-text")
+        .innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter, 25);
+    }
+}
+
+window.onload = () => {
+
+    setTimeout(typeWriter, 500);
+
+};
+
+</script>
+
+</body>
+</html>
