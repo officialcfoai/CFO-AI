@@ -42,7 +42,7 @@ window.loginWithGoogle = async function(){
         console.log("Utente autenticato:", user);
 
         // Reindirizzamento alla home
-        window.location.href = "home.html";
+       window.location.href = "intro.html";
 
     }
 
